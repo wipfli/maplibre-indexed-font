@@ -10,6 +10,8 @@
 
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+import nodeCanvas from 'canvas';
+
 const INF = 1e20;
 
 export default class TinySDF {
@@ -28,6 +30,7 @@ export default class TinySDF {
 
         // make the canvas size big enough to both have the specified buffer around the glyph
         // for "halo", and account for some glyphs possibly being larger than their font size
+        // const size = this.size = fontSize + buffer * 4;
         const size = this.size = fontSize + buffer * 4;
 
         const canvas = this._createCanvas(size);
@@ -47,9 +50,10 @@ export default class TinySDF {
     }
 
     _createCanvas(size) {
-        const canvas = document.createElement('canvas');
-        canvas.width = canvas.height = size;
-        return canvas;
+        // const canvas = document.createElement('canvas');
+        // canvas.width = canvas.height = size;
+        // return canvas;
+        return nodeCanvas.createCanvas(size, size);
     }
 
     draw(char) {
