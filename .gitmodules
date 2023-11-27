@@ -1,0 +1,4 @@
+[submodule "sdf_font_tools"]
+	path = sdf_font_tools
+	url = git@github.com:wipfli/sdf_font_tools.git
+	branch = indexed-font
