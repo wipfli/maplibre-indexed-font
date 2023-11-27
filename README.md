@@ -1,6 +1,16 @@
 # maplibre-indexed-font
 Use an indexed font in MapLibre to render non-supported scripts
 
+## Idea
+
+This is an extension from previous work on [index-by-grapheme](https://github.com/maplibre/maplibre-gl-js/pull/2458). The idea is to cut label strings into segments that are visually independent. Then store one glyph for every segment in an indexed-font. Replace the segments with the index of the segment. Sorry for the bad explanation, but it is a good idea I think...
+
+Works with any version of MapLibre. No modification of the codebase or toolkit is needed.
+
+## Demo
+
+<a href="https://wipfli.github.io/maplibre-indexed-font/#map=4.65/15.48/87.62"><img src="screenshot.png" width=450></a>
+
 ## Usage
 
 To get the sdf_font_tool submodule, run:
