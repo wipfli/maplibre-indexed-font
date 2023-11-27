@@ -32,39 +32,6 @@
             zoom: 4,
             hash: 'map'
         });
-
-
-        fetch('tests_encoded.geojson')
-            .then(data => data.json())
-            .then(geojson => {
-                map.on('load', () => {
-                    map.addSource('tests', {
-                        'type': 'geojson',
-                        'data': geojson
-                    });
-
-                    map.addLayer({
-                        'id': 'tests',
-                        'type': 'symbol',
-                        'source': 'tests',
-                        'layout': {
-                            'text-field': [
-                                'format',
-                                ['get', 'name'],
-                                '\n',
-                                {},
-                                ['get', 'native_name_encoded'],
-                                {}
-                            ],
-                            'text-font': ['roboto']
-                        },
-                        'paint': {
-                            'text-halo-width': 3,
-                            'text-halo-color': 'rgba(255, 255, 255, 0.7)'
-                        }
-                    });
-                });
-            });
     </script>
 </body>
 
